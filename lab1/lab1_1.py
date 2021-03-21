@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import signal_generator
-import complexity_generator
+from lab1 import complexity_generator
 import statistics_utils
 
 HARMONICS = 10
