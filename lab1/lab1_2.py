@@ -21,19 +21,21 @@ signal_second = signal_generator.generate_signal(
 auto_correlation_signal = statistics_utils.auto_correlation(signal_first)
 cross_correlation_signal = statistics_utils.cross_correlation(signal_first, signal_second)
 
-# auto_correlation_time = complexity_generator.calculate_time_correlation(
-#   HARMONICS,
-#   FREQUENCY,
-#   500,
-#   'auto'
-# )
-#
-# cross_correlation_time = complexity_generator.calculate_time_correlation(
-#   HARMONICS,
-#   FREQUENCY,
-#   500,
-#   'cross'
-# )
+auto_correlation_time = complexity_generator.calculate_time_correlation(
+  HARMONICS,
+  FREQUENCY,
+  DISCRETE_CALLS,
+  'auto'
+)
+print('auto_correlation_time', auto_correlation_time)
+
+cross_correlation_time = complexity_generator.calculate_time_correlation(
+  HARMONICS,
+  FREQUENCY,
+  DISCRETE_CALLS,
+  'cross'
+)
+print('cross_correlation_time', cross_correlation_time)
 
 fig, (((ax00), (ax01)), ((ax10), (ax11))) = plt.subplots(2, 2)
 fig.suptitle('Laboratorka 1.2')
@@ -56,19 +58,6 @@ ax11.set_title('Crosscorrelation of first and second signals')
 ax11.set(xlabel='tau', ylabel='correlation')
 
 fig.savefig('lab1_2.png')
-
-# fig, (ax3, ax4) = plt.subplots(2)
-# fig.suptitle('Laboratorka 1.2 Complexity')
-# fig.set_size_inches(18.5, 10.5)
-#
-# ax3.plot(auto_correlation_time)
-# ax3.set_title('Complexity of auto correlation')
-# ax3.set(xlabel='number of discrete calls', ylabel='time (seconds)')
-#
-# ax4.plot(cross_correlation_time)
-# ax4.set_title('Complexity of cross correlation')
-# ax4.set(xlabel='number of discrete calls', ylabel='time (seconds)')
-# fig.savefig('lab1_2_complexity.png')
 
 plt.show()
 
