@@ -4,7 +4,7 @@ class TabItem {
   TabItem({this.label, this.title, this.icon, this.backgroundColor});
   final String label;
   final String title;
-  final Icon icon;
+  final icon;
   final Color backgroundColor;
 }
 
@@ -15,9 +15,9 @@ List<TabItem> allTabItems = <TabItem>[
       title: 'Fermat`s factorization example',
       backgroundColor: Colors.redAccent[400]),
   TabItem(
-      icon: Icon(Icons.more_time),
-      label: 'lab32',
-      title: 'lab32',
+      icon: Icon(Icons.mediation),
+      label: 'perceptron',
+      title: 'Perceptron example',
       backgroundColor: Colors.tealAccent[400]),
   TabItem(
       icon: Icon(Icons.more_time),

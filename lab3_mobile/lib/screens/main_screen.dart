@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lab3_mobile/screens/fermat_factorization_screen.dart';
+import 'package:lab3_mobile/screens/perceptron_screen.dart';
 import 'package:lab3_mobile/widgets/bottom_navigation.dart';
 
 List<Widget> _options = <Widget>[
   FermatFactorization(),
-  FermatFactorization(),
+  Perceptron(),
   FermatFactorization(),
 ];
 

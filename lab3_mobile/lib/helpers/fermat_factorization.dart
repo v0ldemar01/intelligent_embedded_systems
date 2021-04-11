@@ -16,6 +16,6 @@ String fermatFactorization(dynamic inputValue) {
       break;
     else
       a += 1;
-  }
+  }  
   return '${a - b} * ${a + b}';
 }
