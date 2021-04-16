@@ -10,6 +10,7 @@ class FermatFactorization extends StatefulWidget {
 class _FermatFactorizationState extends State<FermatFactorization> {
   final _numberController = TextEditingController();
   String resultValue = '';
+  String iterations = '';
   bool _offstage = true;
 
   @override
@@ -37,11 +38,25 @@ class _FermatFactorizationState extends State<FermatFactorization> {
               offstage: _offstage,
               child: Padding(
                 padding: const EdgeInsets.all(25.0),
-                child: Text(resultValue,
-                    style: TextStyle(
+                child: Column(
+                  children: [
+                    Text(
+                      resultValue,
+                      style: TextStyle(
                         color: resultValue.contains('*')
-                            ? Colors.orange
-                            : Colors.red)),
+                          ? Colors.orange
+                          : Colors.red
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      'Iterations: $iterations',
+                      style: TextStyle(
+                        color: Colors.green
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             _offstage ? SizedBox(height: 8.0) : SizedBox(height: 0.0),
@@ -50,12 +65,14 @@ class _FermatFactorizationState extends State<FermatFactorization> {
               style: ElevatedButton.styleFrom(
                 primary: Colors.purple,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
               ),
               onPressed: () {
                 setState(() {
                   _offstage = false;
-                  resultValue = fermatFactorization(_numberController.text);
+                  final result = fermatFactorization(_numberController.text);                  
+                  resultValue = result['value'];
+                  iterations = result['iterations'].toString();
                 });
               },
             ),
