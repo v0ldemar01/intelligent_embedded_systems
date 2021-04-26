@@ -10,20 +10,20 @@ class TabItem {
 
 List<TabItem> allTabItems = <TabItem>[
   TabItem(
-      icon: Icon(Icons.miscellaneous_services),
-      label: 'factorization',
-      title: 'Fermat`s factorization example',
-      backgroundColor: Colors.redAccent[400]),
+    icon: Icon(Icons.miscellaneous_services),
+    label: 'factorization',
+    title: 'Fermat`s factorization example',
+    backgroundColor: Colors.redAccent[400]),
   TabItem(
-      icon: Icon(Icons.mediation),
-      label: 'perceptron',
-      title: 'Perceptron example',
-      backgroundColor: Colors.tealAccent[400]),
+    icon: Icon(Icons.mediation),
+    label: 'perceptron',
+    title: 'Perceptron example',
+    backgroundColor: Colors.tealAccent[400]),
   TabItem(
-      icon: Icon(Icons.more_time),
-      label: 'lab33',
-      title: 'lab33',
-      backgroundColor: Colors.deepPurpleAccent[400]),
+    icon: Icon(Icons.developer_board),
+    label: 'genetic',
+    title: 'Genetic algorithm for diaphantine equation',
+    backgroundColor: Colors.deepPurpleAccent[400]),
 ];
 
 class BottomNavigation extends StatelessWidget {
@@ -37,11 +37,11 @@ class BottomNavigation extends StatelessWidget {
     return BottomNavigationBar(
       type: BottomNavigationBarType.shifting,
       items: allTabItems
-          .map((TabItem tabItem) => BottomNavigationBarItem(
-              icon: tabItem.icon,
-              backgroundColor: tabItem.backgroundColor,
-              label: tabItem.label))
-          .toList(),
+        .map((TabItem tabItem) => BottomNavigationBarItem(
+            icon: tabItem.icon,
+            backgroundColor: tabItem.backgroundColor,
+            label: tabItem.label))
+        .toList(),
       currentIndex: currentIndex,
       selectedItemColor: Colors.white,
       unselectedItemColor: Colors.grey,
