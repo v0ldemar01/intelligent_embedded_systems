@@ -5,6 +5,24 @@ String geneticAlgorithm(
   int numberPopulations,
   int maxIterations
 ) {
+  List<String> result = List.empty(growable: true);
+  final resultIteration1 = geneticAlgorithmCalc(inputEquation, numberPopulations, maxIterations);
+  final resultIteration2 = geneticAlgorithmCalc(inputEquation, numberPopulations * 2, maxIterations);
+
+  result.addAll([resultIteration1, resultIteration2]);
+  if (int.parse(resultIteration1.split(': ').last) < int.parse(resultIteration2.split(': ').last)) {
+    result.add('Не варто було збільшувати кількість популяцій');
+  } else {
+    result.add('Збільшення кількості популяцій було варте того');
+  }
+  return result.join('\n');
+}
+
+String geneticAlgorithmCalc(
+  List<String> inputEquation,
+  int numberPopulations,
+  int maxIterations
+) {
   final stopwatch = Stopwatch()..start();
   final inputCoefficients = List.generate(inputEquation.length, 
     (index) => int.parse(inputEquation[index]));
@@ -26,7 +44,7 @@ String geneticAlgorithm(
       if (delta == 0) result = chromosome;
       return delta;
     }).toList();
-    if (result != null) return result.toString() + '\niterations: $iterationCounter \ntime: ${stopwatch.elapsedMilliseconds / 1000}';    
+    if (result != null) return result.toString() + '\ntime: ${stopwatch.elapsedMilliseconds / 1000}\niterations: $iterationCounter';    
     final probabilities = calcProbability(deltasFitness);     
     final rouletteElements = currentPopulation
       .asMap()
@@ -102,6 +120,6 @@ List<int> calcMutation(List<int> chromosome, int maxGene, {double thresholdProba
   return chromosome;
 }
 
-// void main() {
-//   print(geneticAlgorithm(['1', '1', '2', '4', '45'], 4, 0));
-// }
+void main() {
+  print(geneticAlgorithm(['1', '1', '2', '4', '45'], 4, 0));  
+}
